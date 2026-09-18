@@ -124,10 +124,10 @@ comparando hashes, nunca contraseñas en claro.
 
 ## Usuarios de prueba
 
-| Usuario  | Contraseña |
-|----------|------------|
-| admin    | 1234       |
-| mesero   | abcd       |
+| Usuario  | Contraseña   |
+|----------|--------------|
+| Isabel   | 1234         |
+| Maria    | frutas123    |
 
 ## Cómo ejecutar
 
