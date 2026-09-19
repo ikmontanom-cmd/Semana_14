@@ -17,14 +17,23 @@ class GestorIconos:
         if nombre in self.iconos_cargados:
             return self.iconos_cargados[nombre]
 
-        ruta = self.ruta_assets / f"{nombre}.png"
-        icono = None
+        # El logo vive en assets/logo/, el resto de iconos en assets/icons/.
+        # Se revisan ambas carpetas (y la raiz de assets, por compatibilidad)
+        # asi no importa en cual este guardado el archivo.
+        posibles_rutas = [
+            self.ruta_assets / "logo" / f"{nombre}.png",
+            self.ruta_assets / "icons" / f"{nombre}.png",
+            self.ruta_assets / f"{nombre}.png",
+        ]
 
-        if ruta.exists():
-            try:
-                icono = tk.PhotoImage(file=str(ruta))
-            except tk.TclError:
-                icono = None
+        icono = None
+        for ruta in posibles_rutas:
+            if ruta.exists():
+                try:
+                    icono = tk.PhotoImage(file=str(ruta))
+                except tk.TclError:
+                    icono = None
+                break
 
         # Se guarda la referencia para que Tkinter no elimine la imagen.
         self.iconos_cargados[nombre] = icono

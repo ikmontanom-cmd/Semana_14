@@ -25,8 +25,8 @@ class AplicacionRestaurante:
         self.mostrar_login()
 
     def aplicar_icono_ventana(self):
-        # Usa el icono de la carpeta assets como icono de la ventana.
-        icono_app = iconos.obtener("app_icon")
+        # Usa el icono pequeno de assets/logo/icono.png como icono de la ventana.
+        icono_app = iconos.obtener("icono")
 
         if icono_app is not None:
             self.root.iconphoto(True, icono_app)
